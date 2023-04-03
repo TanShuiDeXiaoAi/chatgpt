@@ -13,6 +13,9 @@
         passive: false
     });
 
+    function clearGptInputValue() {
+        $("#chat-gpt-input").val("")
+    }
     async function callCHATGPT() {
         var url = "https://free-api.cveoy.top/v2/completions";
         var btn = document.getElementById('myButton');
@@ -31,7 +34,7 @@
         }, 1000);
         var textarea = document.getElementById("chat-gpt-input");
         if (textarea.value.trim() === "") {
-            alert("请输入您的问题！");
+            $("#modal-no-text").css("display", "block")
             return false;
         } else {
 
