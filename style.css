@@ -51,7 +51,11 @@ body {
     border-radius: 10px;
 }
 #chatgpt-response:hover{
+<<<<<<< HEAD
     cursor: text;
+=======
+   cursor:text; 
+>>>>>>> 75a7c7b5d974ad23226cefbb916835fc237e036a
 }
 .gg {
     display: flex;
