@@ -50,13 +50,11 @@ body {
     border: 1px solid #ccc;
     border-radius: 10px;
 }
-#chatgpt-response:hover{
-<<<<<<< HEAD
+
+#chatgpt-response:hover {
     cursor: text;
-=======
-   cursor:text; 
->>>>>>> 75a7c7b5d974ad23226cefbb916835fc237e036a
 }
+
 .gg {
     display: flex;
     width: 100%;
@@ -161,4 +159,21 @@ a:visited {
     margin-left: 15px;
     font-weight: bold;
     color: red;
+}
+
+@media screen and (width>980px) {
+    #modalMain {
+        width: 25%;
+        margin-top:70px;
+    }
+    #modalText{
+        font-size:25px;
+    }
+    #modalMain-no-text {
+        width: 30%;
+        margin-top:70px;
+    }
+    #modalText-no-text{
+        font-size:25px;
+    }
 }
