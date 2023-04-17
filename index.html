@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>ChatGPT</title>
+    <style>
+        body {
+            overflow-wrap: break-word;
+        }
+    </style>
+    <script>
+        function answer() {
+            var inputValue = document.getElementById("input").value
+            var xhr = new XMLHttpRequest();
+            var url = "https://api.pearktrue.cn/api/gpt/?message=" + inputValue
+            xhr.open('GET', url, true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var xhrStrgify = JSON.parse(xhr.responseText)
+                    document.getElementById("answer").innerHTML = xhrStrgify.answer
+                    if (inputValue === "") {
+                        document.getElementById("answer").innerHTML = "请输入问题"
+                    }
+                }
+            };
+            xhr.send();
+
+        }
+    </script>
+</head>
+
+<body>
+    <input id="input">
+    <button onclick="answer()">click me</button>
+    <div id="answer"></div>
+</body>
+
+</html>
