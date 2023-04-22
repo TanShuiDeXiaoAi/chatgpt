@@ -21,6 +21,32 @@
             resize: none;
             outline: none;
         }
+
+        #themeToggle {
+            width: 50px;
+            height: 30px;
+            background-color: red;
+            display: flex;
+            align-items: center;
+        }
+
+        #themeToggleBtnLeft {
+            width: 20px;
+            height: 24px;
+            background-color: blue;
+            transition: all .5s ease;
+            position: static;
+        }
+
+        #themeToggleBtnRight {
+            width: 20px;
+            height: 24px;
+            background-color: blue;
+            transition: all .5s ease;
+            position: absolute;
+            margin-left: 2.6%;
+            display: none;
+        }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
     <script>
@@ -100,6 +126,28 @@
             </path>
         </g>
     </svg>
+    <div id="themeToggle">
+        <div id="themeToggleBtnLeft"></div>
+        <div id="themeToggleBtnRight"></div>
+    </div>
+    <script>
+        $("#themeToggleBtnLeft").click(function () {
+            $("#themeToggleBtnLeft").css("margin-left", "59%")
+            setTimeout(function () {
+                $("#themeToggleBtnLeft").css("display", "none")
+                $("#themeToggleBtnRight").css("margin-left", "2.6%")
+                $("#themeToggleBtnRight").css("display", "block")
+            }, 500)
+        })
+        $("#themeToggleBtnRight").click(function () {
+            $("#themeToggleBtnRight").css("margin-left", "0%")
+            setTimeout(function () {
+                $("#themeToggleBtnRight").css("display", "none")
+                $("#themeToggleBtnLeft").css("margin-left", "0%")
+                $("#themeToggleBtnLeft").css("display", "block")
+            }, 500)
+        })
+    </script>
     <textarea id="input"></textarea>
     <button onclick="answer()">回答</button>
     <button onclick="clearQestion()">清空问题</button>
