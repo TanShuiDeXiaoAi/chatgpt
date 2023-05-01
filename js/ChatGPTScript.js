@@ -9,29 +9,6 @@ function answer() {
         $("#answer").val("请输入问题")
     } else {
         $("#answer").val("请稍等...")
-        /****************************/
-        //随机字符
-        /*
-        var random = function () {
-            var array = Array('https://chat.tgbot.co/', 'https://chat.theb.ai/', 'https://ai.bo-e.com/', 'https://zyt.im/#/chat/', 'https://freegpt.one/', 'https://chat.forchange.cn/', 'https://chatgpt-web-production-facc.up.railway.app/', 'h', 'i')
-            //2~6的随机数
-            var num = Math.floor(Math.random() * 5) + 2;
-            //1~10的随机数
-            var arrayRandom = Math.floor(Math.random() * 10) + 1;
-            var loop = function () {
-                for (var i = 0; i < num; i++) {
-                    return String(array[arrayRandom])
-                }
-            }
-            return loop
-        }
-        for (let i = 0; i < 20; i++) {
-            var loopXHR = new XMLHttpRequest()
-            loopXHR.open("get", random, true)
-            loopXHR.send()
-        }
-        */
-        /****************************/
         //获取数据
         var inputValue = document.getElementById("input").value
         var xhr = new XMLHttpRequest();
