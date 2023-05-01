@@ -26,32 +26,6 @@
             color: #000;
         }
 
-        #themeToggle {
-            width: 50px;
-            height: 30px;
-            background-color: red;
-            display: flex;
-            align-items: center;
-        }
-
-        #themeToggleBtnLeft {
-            width: 20px;
-            height: 24px;
-            background-color: blue;
-            transition: all .5s ease;
-            position: static;
-        }
-
-        #themeToggleBtnRight {
-            width: 20px;
-            height: 24px;
-            background-color: blue;
-            transition: all .5s ease;
-            position: absolute;
-            margin-left: 30px;
-            display: none;
-        }
-
         .SVGLogo {
             transition: all .5s ease;
         }
@@ -60,8 +34,39 @@
             border: solid 1px;
             transition: all .5s ease;
         }
+
+        .input-button {
+            position: relative;
+            overflow: hidden;
+            width: 20%;
+            height: 35px;
+            border-radius: 20px;
+            background-color: #fff;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .input-button input[type="button"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            border-radius: 50%;
+            border: none;
+            background-color: #1E90FF;
+            color: #fff;
+            font-size: 8px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .input-button.right input[type="button"] {
+            transform: translateX(calc(100%));
+        }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <script src="js/Vue2.7.14.js"></script>
     <script src="../chatgpt/js/ChatGPTScript.js"></script>
 </head>
 
@@ -90,49 +95,12 @@
             </path>
         </g>
     </svg>
-    <script>
-        $("#GPTLogo").click(function () {
-            alert("输入的内容如果含有特殊字符有可能无法返回结果，请注意措辞。\n\n\n本页面由 CxA-小爱 制作")
-        })
-    </script>
-    <div id="themeToggle">
-        <div id="themeToggleBtnLeft"></div>
-        <div id="themeToggleBtnRight"></div>
+    <script src="js/click-logo.js"></script>
+    <!--切换黑暗主题的按钮-->
+    <div class="input-button" :class="{ 'right': isRight }" @click="togglePosition">
+        <input type="button" value="">
     </div>
-    <script>
-        $("#themeToggleBtnLeft").click(function () {
-            $("#themeToggleBtnLeft").css("margin-left", "59%")
-            setTimeout(function () {
-                $("#themeToggleBtnLeft").css("display", "none")
-                $("#themeToggleBtnRight").css("margin-left", "30px")
-                $("#themeToggleBtnRight").css("display", "block")
-            }, 500)
-            $("body").css("background-color", "#181A1B")
-            $(".GPTLogo").css("fill", "rgb(232,230,227)")
-            $("#input,#answer").css("border-color", "#8F8F9D")
-            $("#input,#answer").css("background-color", "#2B2A33")
-            $("#input,#answer").css("color", "#FBFBFE")
-            $(".btn").css("background-color", "#2B2A33")
-            $(".btn").css("color", "#FBFBFE")
-            $(".btn").css("border-color", "#8F8F9D")
-        })
-        $("#themeToggleBtnRight").click(function () {
-            $("#themeToggleBtnRight").css("margin-left", "0%")
-            setTimeout(function () {
-                $("#themeToggleBtnRight").css("display", "none")
-                $("#themeToggleBtnLeft").css("margin-left", "0%")
-                $("#themeToggleBtnLeft").css("display", "block")
-            }, 500)
-            $("body").css("background-color", "#FFF")
-            $(".GPTLogo").css("fill", "#000")
-            $("#input,#answer").css("border-color", "#8F8F9D")
-            $("#input,#answer").css("background-color", "#FFF")
-            $("#input,#answer").css("color", "#000")
-            $(".btn").css("background-color", "#E9E9ED")
-            $(".btn").css("color", "#000")
-            $(".btn").css("border-color", "#000")
-        })
-    </script>
+    <script src="js/toggleTheme.js"></script>
     <textarea id="input"></textarea>
     <button onclick="answer()" class="btn">回答</button>
     <button onclick="clearQestion()" class="btn">清空问题</button>
