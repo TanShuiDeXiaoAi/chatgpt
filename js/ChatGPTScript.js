@@ -36,11 +36,20 @@ function answer() {
     }
 
 }
-
+var bool = true;
 function clearQestion() {
-    document.getElementById("input").value = ""
-}
 
+    if (bool) {//true
+        $("#done-clear").css("height", "3.2vh")
+        bool = !bool//false
+    } else {
+        $("#done-clear").css("height", "0vh")
+        bool = !bool//true
+    }
+}
+function doneClear() {
+    $("#input").val("")
+}
 function clearAnswer() {
     document.getElementById("answer").value = ""
 }

@@ -45,11 +45,29 @@
         }
 
         .btn {
+            font-weight: bold;
+            color: #fff;
             border: solid 1px;
             transition: all .5s ease;
             border: solid 1px #1E90FF;
             border-radius: 10%;
             background-color: #1E90FF;
+        }
+
+        #done-clear {
+            font-weight: 550;
+            color: #fff;
+            font-size: 90%;
+            width: 72%;
+            height: 0%;
+            border: solid 1px;
+            transition: all .5s ease;
+            border-radius: 10%;
+            background-color: #ff4e4e;
+            display: flex;
+            justify-content: center;
+            margin-top: 1vh;
+            transition: all .2s;
         }
 
         .input-button {
@@ -160,7 +178,17 @@
         <textarea id="input"></textarea>
         <div id="question-btn-container">
             <button onclick="answer()" class="btn" id="click-ask-btn">点击提问</button>
-            <button onclick="clearQestion()" class="btn">清空问题</button>
+            <button onclick="clearQestion()" class="btn" id="clearQuestionBtn">清空问题</button>
+            <div id="done-clear" onclick="doneClear()" disabled="disabled">确定清空</div>
+            <script>
+                const getDoneClearEle = document.getElementById("done-clear");
+                const getclearQuestionBtnEle = document.getElementById("clearQuestionBtn")
+                document.addEventListener("click", function (event) {
+                    if (event.target !== getDoneClearEle && event.target !== getclearQuestionBtnEle) {
+                        $("#done-clear").css("height", "0vh")
+                    }
+                });
+            </script>
         </div>
     </div>
     <div id="answer-container">
