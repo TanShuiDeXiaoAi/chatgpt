@@ -38,7 +38,7 @@ function answer() {
 }
 var bool = true;
 function clearQestion() {
-
+    $("#done-clear").css("transition","height .2s")
     if (bool) {//true
         $("#done-clear").css("height", "3.2vh")
         bool = !bool//false
