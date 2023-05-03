@@ -1,0 +1,128 @@
+body {
+    overflow-wrap: break-word;
+    transition: all .5s ease;
+}
+
+textarea {
+    width: 100%;
+    height: 40vh;
+    outline: none;
+}
+
+#input,
+#answer {
+    resize: none;
+    outline: none;
+    transition: all .5s ease;
+    border: solid 1.5px #8F8F9D;
+    color: #000;
+    border-radius: 4%;
+}
+
+#input {
+    height: 20vh;
+}
+
+#answer {
+    width: 60vh;
+    height: 57vh;
+}
+
+.SVGLogo {
+    transition: all .5s ease;
+}
+
+#GPTLogo {
+    margin-top: 0.8%;
+    width: 36%;
+}
+
+.btn {
+    font-weight: bold;
+    color: #fff;
+    border: solid 1px;
+    transition: all .5s ease;
+    border: solid 1px #1E90FF;
+    border-radius: 10%;
+    background-color: #1E90FF;
+}
+
+#done-clear {
+    font-weight: 550;
+    color: #fff;
+    font-size: 90%;
+    width: 72%;
+    height: 0%;
+    border: solid 1px;
+    transition: all .5s ease;
+    border-radius: 10%;
+    background-color: #ff4e4e;
+    display: flex;
+    justify-content: center;
+    margin-top: 1vh;
+}
+
+.input-button {
+    position: relative;
+    overflow: hidden;
+    width: 20%;
+    height: 33px;
+    border-radius: 20px;
+    background-color: #e4e4e4;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.input-button input[type="button"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    border-radius: 50%;
+    border: none;
+    background-color: #1E90FF;
+    color: #fff;
+    font-size: 8px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.input-button.right input[type="button"] {
+    transform: translateX(calc(100%));
+}
+
+#page-title {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 3%;
+}
+
+#click-ask-btn {
+    margin-bottom: 1vh;
+}
+
+#question-container,
+#answer-container {
+    display: flex;
+}
+
+#answer-container {
+    padding-top: 2%;
+}
+
+#question-btn-container {
+    padding-left: 2%;
+}
+
+#answer-btn-container {
+    padding-right: 2%;
+}
+
+.page-bottom-item {
+    font-size: 9px;
+    color: #8F8F9D;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
