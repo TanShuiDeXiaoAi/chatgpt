@@ -38,10 +38,15 @@ function answer() {
 }
 var bool = true;
 function clearQestion() {
-    $("#done-clear").css("transition","height .2s")
+    $("#done-clear").css("transition", "height .2s")
     if (bool) {//true
-        $("#done-clear").css("height", "3.2vh")
-        bool = !bool//false
+        if (window.innerWidth > 980) {
+            $("#done-clear").css("height", "5vh")
+            bool = !bool//false
+        } else {
+            $("#done-clear").css("height", "3.2vh")
+            bool = !bool//false
+        }
     } else {
         $("#done-clear").css("height", "0vh")
         bool = !bool//true

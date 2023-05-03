@@ -5,145 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <title>ChatGPT</title>
-    <style>
-        body {
-            overflow-wrap: break-word;
-            transition: all .5s ease;
-        }
-
-        textarea {
-            width: 100%;
-            height: 40vh;
-            outline: none;
-        }
-
-        #input,
-        #answer {
-            resize: none;
-            outline: none;
-            transition: all .5s ease;
-            border: solid 1.5px #8F8F9D;
-            color: #000;
-            border-radius: 4%;
-        }
-
-        #input {
-            height: 20vh;
-        }
-
-        #answer {
-            width: 60vh;
-            height: 57vh;
-        }
-
-        .SVGLogo {
-            transition: all .5s ease;
-        }
-
-        #GPTLogo {
-            margin-top: 0.8%;
-        }
-
-        .btn {
-            font-weight: bold;
-            color: #fff;
-            border: solid 1px;
-            transition: all .5s ease;
-            border: solid 1px #1E90FF;
-            border-radius: 10%;
-            background-color: #1E90FF;
-        }
-
-        #done-clear {
-            font-weight: 550;
-            color: #fff;
-            font-size: 90%;
-            width: 72%;
-            height: 0%;
-            border: solid 1px;
-            transition: all .5s ease;
-            border-radius: 10%;
-            background-color: #ff4e4e;
-            display: flex;
-            justify-content: center;
-            margin-top: 1vh;
-        }
-
-        .input-button {
-            position: relative;
-            overflow: hidden;
-            width: 20%;
-            height: 33px;
-            border-radius: 20px;
-            background-color: #e4e4e4;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-        }
-
-        .input-button input[type="button"] {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 50%;
-            height: 100%;
-            border-radius: 50%;
-            border: none;
-            background-color: #1E90FF;
-            color: #fff;
-            font-size: 8px;
-            text-align: center;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .input-button.right input[type="button"] {
-            transform: translateX(calc(100%));
-        }
-
-        #page-title {
-            display: flex;
-            justify-content: space-between;
-            padding-bottom: 3%;
-        }
-
-        #click-ask-btn {
-            margin-bottom: 1vh;
-        }
-
-        #question-container,
-        #answer-container {
-            display: flex;
-        }
-
-        #answer-container {
-            padding-top: 2%;
-        }
-
-        #question-btn-container {
-            padding-left: 2%;
-        }
-
-        #answer-btn-container {
-            padding-right: 2%;
-        }
-
-        .page-bottom-item {
-            font-size: 9px;
-            color: #8F8F9D;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-        }
-    </style>
+    <link class="media" rel="stylesheet">
+    </link>
     <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
     <script src="js/Vue2.7.14.js"></script>
     <script src="js/ChatGPTScript.js"></script>
 </head>
 
 <body>
+    <script>
+        if (window.innerWidth > 980) {
+            //电脑端适配
+            $(".media").attr("href", "style/pc.css")
+        } else {
+            $(".media").attr("href", "style/mobile.css")
+        }
+    </script>
     <div id="page-title">
-        <svg id="GPTLogo" style="width:36%;" fill="none" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 118 32"
-            class="a-icon--logo-text flex h-32" style="width:118;height:32;" data-new aria-hidden="true"
-            data-v-069f367b>
+        <svg id="GPTLogo" fill="none" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 118 32"
+            class="a-icon--logo-text flex h-32" data-new aria-hidden="true" data-v-069f367b>
             <g fill="currentColor" data-v-069f367b>
                 <path class="GPTLogo"
                     d="m36.7 15.4c0 5.2 3.4 8.9 8 8.9s8-3.6 8-8.9-3.4-8.9-8-8.9-8 3.7-8 8.9zm13 0c0 3.7-2 6.2-4.9 6.2s-4.9-2.4-4.9-6.2 2-6.2 4.9-6.2 4.9 2.4 4.9 6.2z">
@@ -180,6 +60,9 @@
             <button onclick="clearQestion()" class="btn" id="clearQuestionBtn">清空问题</button>
             <div id="done-clear" onclick="doneClear()" disabled="disabled">确定清空</div>
             <script>
+                if (window.innerWidth > 980) {
+                    $("#done-clear").css("height", "0vh")
+                }
                 const getDoneClearEle = document.getElementById("done-clear");
                 const getclearQuestionBtnEle = document.getElementById("clearQuestionBtn")
                 document.addEventListener("click", function (event) {
@@ -192,7 +75,7 @@
     </div>
     <div id="answer-container">
         <div id="answer-btn-container">
-            <button onclick="clearAnswer()" class="btn">清空回答</button>
+            <button onclick="clearAnswer()" class="btn clearAnswerBtn">清空回答</button>
             <!--
             <button onclick="toggleDisabledAttribute()" class="btn">把回答框改成可/不可编辑模式</button>
             -->
@@ -202,6 +85,7 @@
     <div class="page-bottom-item" style="padding-top: 5vh;">Note:如果输入某些特殊字符，会导致ChatGPT无法返回内容</div>
     <div class="page-bottom-item">该机器人使用GPT-3.5-Turbo模型</div>
     <div class="page-bottom-item">本页面由CxA-小爱&nbsp&nbspkane开发</div>
+
 </body>
 
 </html>
