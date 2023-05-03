@@ -138,8 +138,16 @@ textarea {
     padding-left: 2%;
 }
 
+#question-btn-container:hover {
+    cursor: default;
+}
+
 #answer-btn-container {
     padding-right: 2%;
+}
+
+#answer-btn-container:hover {
+    cursor: default;
 }
 
 .page-bottom-item {
