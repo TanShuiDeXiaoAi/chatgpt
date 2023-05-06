@@ -126,6 +126,10 @@ textarea {
     display: flex;
 }
 
+#question-container {
+    margin-top: -2vh;
+}
+
 #answer-container {
     padding-top: 2%;
 }
