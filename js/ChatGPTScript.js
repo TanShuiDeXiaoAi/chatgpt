@@ -38,6 +38,7 @@ function answer() {
 }
 var bool = true;
 function clearQestion() {
+    /*
     $("#done-clear").css("transition", "height .2s")
     if (bool) {//true
         if (window.innerWidth > 980) {
@@ -51,6 +52,8 @@ function clearQestion() {
         $("#done-clear").css("height", "0vh")
         bool = !bool//true
     }
+    */
+    $("#input").val("")
 }
 function doneClear() {
     $("#input").val("")

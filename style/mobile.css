@@ -126,3 +126,7 @@ textarea {
     display: flex;
     justify-content: center;
 }
+
+#clearQuestionBtn {
+    margin-top: 1vh;
+}
