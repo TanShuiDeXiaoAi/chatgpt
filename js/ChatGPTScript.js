@@ -36,7 +36,7 @@ function answer() {
             }
         }
         */
-        alert("undefined")
+        alert("已暂停服务，稍后即可恢复")
         
     }
 
