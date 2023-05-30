@@ -11,7 +11,7 @@ function answer() {
         $("#answer").val("请稍等...")
         //获取数据
         
-        /*
+        
         var inputValue = document.getElementById("input").value
         var xhr = new XMLHttpRequest();
         var url = "https://api.pearktrue.cn/api/gpt/?type=get&message=" + inputValue
@@ -35,9 +35,8 @@ function answer() {
                 }, 5);
             }
         }
-        */
-        alert("已暂停服务，稍后即可恢复")
         
+
     }
 
 }
