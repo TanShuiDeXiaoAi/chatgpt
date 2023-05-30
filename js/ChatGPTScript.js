@@ -10,8 +10,6 @@ function answer() {
     } else {
         $("#answer").val("请稍等...")
         //获取数据
-        
-        
         var inputValue = document.getElementById("input").value
         var xhr = new XMLHttpRequest();
         var url = "https://api.pearktrue.cn/api/gpt/?type=get&message=" + inputValue
@@ -30,14 +28,15 @@ function answer() {
                         $("#answer").val($("#answer").val() + charsArray[i])
                         i++
                     } else {
-  ，                      clearInterval();
+                         clearInterval();
                     }
                 }, 5);
             }
         }
-        
-
     }
+
+    
+
 
 }
 var bool = true;
