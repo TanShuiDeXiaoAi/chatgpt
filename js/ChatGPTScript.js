@@ -8,8 +8,16 @@ function answer() {
     if ($("#input").val() === "") {
         $("#answer").val("请输入问题")
     } else {
-        $("#answer").val("请稍等...")
+        //else start
+        /***********************************/
+        //$("#answer").val("请稍等...")
         //获取数据
+        
+        //new code start:
+        $("#answer").val("API当前正在维护中，请稍候再试！")
+        //new code end
+            
+        /*
         var inputValue = document.getElementById("input").value
         var xhr = new XMLHttpRequest();
         var url = "https://api.pearktrue.cn/api/gpt/?type=get&message=" + inputValue
@@ -33,10 +41,11 @@ function answer() {
                 }, 5);
             }
         }
+        */
+
+        /***********************************/
+        //alse end
     }
-
-    
-
 
 }
 var bool = true;
