@@ -7,9 +7,23 @@
     <title>ChatGPT</title>
     <link class="media" rel="stylesheet">
     </link>
+    <link rel="stylesheet" href="style/modal.css">
     <script src="js/jQuery3.6.3.js"></script>
     <script src="js/Vue2.7.14.js"></script>
+    <!--
     <script src="js/ChatGPTScript.js"></script>
+    -->
+    <script>
+        $(document).ready(function () {
+            $("#modal").css("display", "block")
+            $("#modalClose").click(function () {
+                $("#modal").css("display", "none")
+            })
+            $("#click-ask-btn").click(function () {
+                $("#modal").css("display", "block")
+            })
+        })
+    </script>
 </head>
 
 <body>
@@ -89,6 +103,15 @@
     <div class="page-bottom-item">该机器人使用GPT-3.5-Turbo模型</div>
     <div class="page-bottom-item">本页面由&nbspCxA-小爱&nbsp开发</div>
 
+
+
+    <div id="modal">
+        <div id="modalMain">
+            <span id="modalClose"></span>
+            <div id="modalText">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp正在整改中，ChatGPT暂时关闭！
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
