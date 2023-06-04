@@ -10,13 +10,11 @@ function answer() {
     } else {
         //else start
         /***********************************/
-        //$("#answer").val("请稍等...")
-        //获取数据
-        
+        $("#answer").val("请稍等...")
         //new code start:
-        $("#answer").val("API当前正在维护中，请稍候再试！")
+        //$("#answer").val("API当前正在维护中，请稍候再试！")
         //new code end
-            
+
         /*
         var inputValue = document.getElementById("input").value
         var xhr = new XMLHttpRequest();
@@ -49,6 +47,7 @@ function answer() {
 
 }
 var bool = true;
+
 function clearQestion() {
     /*
     $("#done-clear").css("transition", "height .2s")
@@ -67,12 +66,15 @@ function clearQestion() {
     */
     $("#input").val("")
 }
+
 function doneClear() {
     $("#input").val("")
 }
+
 function clearAnswer() {
     document.getElementById("answer").value = ""
 }
+
 function toggleDisabledAttribute() {
     //判断有没有disabled这个属性
     var attribute = document.getElementById("answer").hasAttribute("disabled")
