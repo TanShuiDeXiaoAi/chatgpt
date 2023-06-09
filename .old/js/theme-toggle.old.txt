@@ -1,0 +1,67 @@
+这里面是最开始写的切换主题按钮左右滑动的代码，现在改成用Vue写了
+
+<style>
+    #themeToggle {
+        width: 50px;
+        height: 30px;
+        background-color: red;
+        display: flex;
+        align-items: center;
+    }
+
+    #themeToggleBtnLeft {
+        width: 20px;
+        height: 24px;
+        background-color: blue;
+        transition: all .5s ease;
+        position: static;
+    }
+
+    #themeToggleBtnRight {
+        width: 20px;
+        height: 24px;
+        background-color: blue;
+        transition: all .5s ease;
+        position: absolute;
+        margin-left: 30px;
+        display: none;
+    }
+</style>
+<div id="themeToggle">
+    <div id="themeToggleBtnLeft"></div>
+    <div id="themeToggleBtnRight"></div>
+</div>
+<script>
+    $("#themeToggleBtnLeft").click(function () {
+        $("#themeToggleBtnLeft").css("margin-left", "59%")
+        setTimeout(function () {
+            $("#themeToggleBtnLeft").css("display", "none")
+            $("#themeToggleBtnRight").css("margin-left", "30px")
+            $("#themeToggleBtnRight").css("display", "block")
+        }, 500)
+        $("body").css("background-color", "#181A1B")
+        $(".GPTLogo").css("fill", "rgb(232,230,227)")
+        $("#input,#answer").css("border-color", "#8F8F9D")
+        $("#input,#answer").css("background-color", "#2B2A33")
+        $("#input,#answer").css("color", "#FBFBFE")
+        $(".btn").css("background-color", "#2B2A33")
+        $(".btn").css("color", "#FBFBFE")
+        $(".btn").css("border-color", "#8F8F9D")
+    })
+    $("#themeToggleBtnRight").click(function () {
+        $("#themeToggleBtnRight").css("margin-left", "0%")
+        setTimeout(function () {
+            $("#themeToggleBtnRight").css("display", "none")
+            $("#themeToggleBtnLeft").css("margin-left", "0%")
+            $("#themeToggleBtnLeft").css("display", "block")
+        }, 500)
+        $("body").css("background-color", "#FFF")
+        $(".GPTLogo").css("fill", "#000")
+        $("#input,#answer").css("border-color", "#8F8F9D")
+        $("#input,#answer").css("background-color", "#FFF")
+        $("#input,#answer").css("color", "#000")
+        $(".btn").css("background-color", "#E9E9ED")
+        $(".btn").css("color", "#000")
+        $(".btn").css("border-color", "#000")
+    })
+</script>
