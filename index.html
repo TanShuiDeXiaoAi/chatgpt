@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT4.0</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+      body {
+        background-color: #f3f3f3;
+      }
+      .chat-wrapper {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+      .chat-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 10vh;
+        background-color: #333;
+        color: #fff;
+        font-size: 24px;
+        padding: 0 20px;
+      }
+      .chat-body {
+        flex: 1;
+        background-color: #f3f3f3;
+        padding: 20px;
+        overflow-y: scroll;
+      }
+      .chat-message {
+        margin: 10px 0;
+        display: flex;
+        flex-direction: column;
+      }
+      .user {
+        font-weight: bold;
+        margin-top: 10px;
+        align-self: flex-end;
+        margin-right: 10px;
+      }
+      .message {
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 16px;
+        max-width: 70%;
+      }
+      .bubble-right {
+        background-color: #4CAF50;
+        color: #fff;
+        align-self: flex-end;
+        margin-left: auto;
+      }
+      .bubble-left {
+        background-color: #fff;
+        color: #333;
+        align-self: flex-start;
+        margin-right: auto;
+      }
+      .chat-form {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 20px;
+      }
+      input[type="text"] {
+        flex-grow: 1;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      button[type="submit"] {
+        border: none;
+        border-radius: 5px;
+        background-color: #4CAF50;
+        color: #fff;
+        padding: 10px 20px;
+        font-size: 16px;
+        margin-left: 10px;
+        cursor: pointer;
+      }
+      .feedback-link {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        font-size: 14px;
+        color: #333;
+      }
+      .error-message {
+        text-align: center;
+        color: red;
+        font-size: 18px;
+        margin-top: 20px;
+      }
+      .welcome-message {
+        font-size: 18px;
+        font-weight: bold;
+        padding: 20px;
+        text-align: center;
+      }
+      .welcome-message a {
+        text-decoration: underline;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chat-wrapper">
+      <div class="chat-header">
+        GPT4.0
+      </div>
+      <div class="chat-body">
+        <div class="welcome-message">
+          欢迎使用聊天机器人！请问有什么需要帮助的吗？如有任何问题或建议，欢迎联系我们的客服部门，<a href="https://support.qq.com/product/482195">点击这里</a>。
+        </div>
+        <div class="error-message" style="display: none;">接口限时开放如未回复则提示该信息说明接口失效或出现错误请稍后重试。</div>
+        <div class="chat-messages"></div>
+      </div>
+      <div class="chat-footer">
+        <form class="chat-form">
+          <input type="text" placeholder="输入您的消息">
+          <button type="submit">发送</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+ 
+$(function() {
+  const chatMessages = $('.chat-messages');
+  const errorMessage = $('.error-message');
+
+  function resetInput() {
+    $('input[type="text"]').val('');
+  }
+
+  function addErrorMessageToChat() {
+    errorMessage.show();
+  }
+
+  function addMessageToChat(user, message, bubbleClass) {
+    const chatMessage = `
+      <div class="chat-message">
+        <div class="message ${bubbleClass}">${message}</div>
+      </div>
+    `;
+    chatMessages.append(chatMessage);
+    chatMessages.scrollTop(chatMessages[0].scrollHeight);
+  }
+
+  function getResponseFromAPI(message) {
+    const apiURL = `https://api.pearktrue.cn/api/gpt/four/?message=${message}`;
+
+    $.get(apiURL, function(data) {
+      try {
+        const response = JSON.parse(data);
+        const chatMessage = response.answer;
+        addMessageToChat('AI', chatMessage, 'bubble-left');
+      } catch {
+        addErrorMessageToChat();
+      }
+    }, 'text').fail(function() {
+      addErrorMessageToChat();
+    });
+  }
+
+  $('.chat-form').submit(function(event) {
+    event.preventDefault();
+    const message = $('input[type="text"]').val();
+    if (message.trim() !== '') {
+      addMessageToChat('', message, 'bubble-right');
+      resetInput();
+      getResponseFromAPI(message);
+    }
+  });
+});
+</script>
+</body>
+</html>
